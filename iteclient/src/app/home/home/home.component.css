@@ -14,7 +14,16 @@ textarea {
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 5px;
-  border: 1px solid black;
+  border: 1px solid #c1c1c1;
   border-radius: 3px;
   background-color: #f3f3f3;
+}
+
+.post-owner-label {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.timestamp-label {
+  font-size: 14px;
 }

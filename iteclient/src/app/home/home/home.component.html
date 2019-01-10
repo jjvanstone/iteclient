@@ -11,33 +11,46 @@
   <div class="col-8 offset-2">
     <div class="create-feed">
       <div class="form-group">
-        <label for="postContent">Create a post</label>
-        <textarea class="form-control"></textarea>
+        <label for="postContent">Create a post</label><br />
+        <label for="postContentError" *ngIf="hasNoContent" class="text-error"
+          >Content is required</label
+        >
+        <textarea [(ngModel)]="newPost.content" class="form-control"></textarea>
       </div>
-      <button class="btn btn-block btn-primary">Submit</button>
+      <button
+        class="btn btn-block btn-primary"
+        [disabled]="isCreating"
+        (click)="createPost()"
+      >
+        Submit
+      </button>
     </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-8 offset-2">
-    <div class="post">
-      <div class="row">
-        <div class="col-12"><label for="postOwner">Post owner</label></div>
-      </div>
-      <div class="row">
-        <div class="col-12"><label for="postOwner">timestamp</label></div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-            luctus nunc sit amet orci sodales hendrerit. Vivamus neque nulla,
-            hendrerit lacinia vehicula sed, rhoncus ac augue. Nullam euismod
-            lobortis semper. Integer lobortis vehicula massa, vitae pellentesque
-            ipsum consectetur eu. Pellentesque ut lectus finibus, elementum
-            tortor id, vulputate tellus.
-          </p>
+<div *ngIf="fetchingPosts" class="col-8 offset-2">
+  <p style="text-align: center">Loading Data...</p>
+</div>
+<div *ngIf="!fetchingPosts">
+  <div class="row" *ngFor="let post of posts">
+    <div class="col-8 offset-2">
+      <div class="post">
+        <div class="row">
+          <div class="col-10">
+            <label for="postOwner" class="post-owner-label">{{
+              post.user.complete_name
+            }}</label>
+          </div>
+          <div class="col-2">
+            <label for="postOwner" class="timestamp-label float-right">{{
+              post.created_at | date: "short"
+            }}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p>{{ post.content }}</p>
+          </div>
         </div>
       </div>
     </div>

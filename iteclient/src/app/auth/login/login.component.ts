@@ -71,6 +71,7 @@ export class LoginComponent implements OnInit {
               this.user.first_name = userData.firstName;
               this.user.middle_name = userData.middleName;
               this.user.last_name = userData.lastName;
+              this.user.id = userData.id;
               this.user.username = undefined;
               this.user.password = undefined;
               this.cookiesStorageService.set(
