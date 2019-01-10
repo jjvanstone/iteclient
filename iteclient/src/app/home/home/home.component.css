@@ -1,0 +1,20 @@
+.navbar {
+  padding: 5px;
+  background-color: #6789b3;
+  color: white;
+  vertical-align: middle;
+
+}
+
+textarea {
+  resize: none;
+}
+
+.post {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #f3f3f3;
+}

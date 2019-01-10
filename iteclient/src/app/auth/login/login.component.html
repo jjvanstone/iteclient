@@ -1,0 +1,38 @@
+<div class="container-fluid login-main">
+  <div class="row">
+    <div class="col-7 image-container">
+      <img src="assets/login-1.jpg" alt="" />
+    </div>
+    <div class="col-5 login-form-col">
+      <div class="row">
+        <div class="col-12">
+          <p for="error" class="text-error text-center" *ngIf="invalidCredentials">Invalid username or password.</p>
+          <p for="error" class="text-error text-center" *ngIf="missingCredentials">Please enter your username & password.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 form-group">
+          <label for="username" class="text-secondary">Username:</label>
+          <input type="text" class="form-control" [(ngModel)]="user.username" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 form-group">
+          <label for="password" class="text-secondary">Password:</label>
+          <input type="text" class="form-control" [(ngModel)]="user.password" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <button type="button" class="btn btn-block btn-secondary" [disabled]="loginProcessing" routerLink="/register">Register</button>
+        </div>
+        <div class="col-6">
+          <button type="button" class="btn btn-block btn-primary" [disabled]="loginProcessing" (click)="login()">{{loginText}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
