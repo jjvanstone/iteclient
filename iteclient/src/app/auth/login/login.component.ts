@@ -33,6 +33,13 @@ export class LoginComponent implements OnInit {
       password: ''
     };
 
+    console.log(
+      'TOKEN LOGIN: ',
+      this.cookiesStorageService.get(environment.storageKeys.accessToken),
+      this.cookiesStorageService.get(environment.storageKeys.accessToken) !==
+        undefined
+    );
+
     if (
       this.cookiesStorageService.get(environment.storageKeys.accessToken) !==
       undefined

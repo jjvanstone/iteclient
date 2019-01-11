@@ -8,7 +8,6 @@ import { Token } from '../core/models/token';
   providedIn: 'root'
 })
 export class UserDataService {
-
   constructor(private http: HttpClient) {}
 
   login(user: User): Promise<Token> {
@@ -30,6 +29,17 @@ export class UserDataService {
           headers: options
         }
       )
+      .toPromise();
+  }
+
+  register(user: User): Promise<any> {
+    const options = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    });
+
+    return this.http
+      .put(environment.urls.apiUrl + 'user', user, { headers: options })
       .toPromise();
   }
 

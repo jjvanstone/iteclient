@@ -6,11 +6,11 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => AuthModule
+    loadChildren: './auth/auth.module#AuthModule'
   },
   {
     path: 'home',
-    loadChildren: () => HomeModule
+    loadChildren: './home/home.module#HomeModule'
   }
 ];
 

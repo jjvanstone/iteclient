@@ -1,3 +1,92 @@
-<p>
-  register works!
-</p>
+<div class="row">
+  <div class="col-8 offset-2 registration-form">
+    <div class="row">
+      <div class="col-12 text-center"><h3>Registration form</h3></div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-12"><label for="username">Username:</label></div>
+      <div class="col-12" *ngIf="usernameError">
+        <label class="text-error" for="usernameError">
+          Username is required
+        </label>
+      </div>
+      <div class="col-12">
+        <input type="text" class="form-control" [(ngModel)]="user.username" />
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-12"><label for="password">Password:</label></div>
+      <div class="col-12" *ngIf="passwordError">
+        <label class="text-error" for="passwordError">
+          Password is required
+        </label>
+      </div>
+      <div class="col-12">
+        <input
+          type="password"
+          class="form-control"
+          [(ngModel)]="user.password"
+        />
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-12"><label for="first_name">First Name:</label></div>
+      <div class="col-12" *ngIf="firstNameError">
+        <label class="text-error" for="firstNameError">
+          First name is required
+        </label>
+      </div>
+      <div class="col-12">
+        <input type="text" class="form-control" [(ngModel)]="user.first_name" />
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-12"><label for="middle_name">Middle Name:</label></div>
+      <div class="col-12">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="user.middle_name"
+        />
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-12"><label for="last_name">Last Name:</label></div>
+      <div class="col-12" *ngIf="lastNameError">
+        <label class="text-error" for="lastNameError">
+          Last name is required
+        </label>
+      </div>
+      <div class="col-12">
+        <input type="text" class="form-control" [(ngModel)]="user.last_name" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <button
+          class="btn btn-seconday btn-block"
+          routerLink="/"
+          [disabled]="processing"
+        >
+          Cancel
+        </button>
+      </div>
+
+      <div class="col-6">
+        <button
+          class="btn btn-primary btn-block"
+          (click)="register()"
+          [disabled]="processing"
+        >
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
